@@ -1,130 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
 body {
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f2f5;
-    background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.5) 35px, rgba(255,255,255,.5) 70px);
-    transition: background-color 0.3s, color 0.3s;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    transition: background 0.5s;
 }
 
 .container {
     text-align: center;
-    background-color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
     padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     width: 90%;
-    max-width: 500px;
-    transition: background-color 0.3s, box-shadow 0.3s;
+    max-width: 550px;
 }
 
 h1 {
-    color: #333;
-    margin-bottom: 30px;
-    font-size: 2.5em;
-    transition: color 0.3s;
+    font-weight: 700;
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .lotto-numbers {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
     margin-bottom: 40px;
+    flex-wrap: wrap;
 }
 
 .lotto-number {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 60px;
-    height: 60px;
-    background-color: #ffeb3b;
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
-    font-size: 1.8em;
-    font-weight: bold;
-    color: #333;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    font-size: 2em;
+    font-weight: 600;
+    color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: pop-in 0.5s ease-out forwards;
+}
+
+.lotto-number:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes pop-in {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+#generate-btn, #theme-toggle-btn {
+    color: white;
+    padding: 15px 35px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 #generate-btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.2em;
-    cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    background: linear-gradient(45deg, #ff6b6b, #f06595);
 }
 
 #generate-btn:hover {
-    background-color: #45a049;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
 #generate-btn:active {
-    background-color: #3e8e41;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
+
 #theme-toggle-btn {
-    background-color: #ddd;
-    color: #333;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    background: rgba(255, 255, 255, 0.2);
     margin-bottom: 20px;
 }
 
 #theme-toggle-btn:hover {
-    background-color: #ccc;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    background: rgba(255, 255, 255, 0.3);
 }
 
 /* Dark mode styles */
 body.dark-mode {
-    background-color: #121212;
-    color: #e0e0e0;
-    background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.1) 35px, rgba(255,255,255,.1) 70px);
+    background: linear-gradient(135deg, #232526 0%, #414345 100%);
 }
 
 body.dark-mode .container {
-    background-color: #1e1e1e;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-}
-
-body.dark-mode h1 {
-    color: #e0e0e0;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 body.dark-mode .lotto-number {
-    background-color: #333;
-    color: #e0e0e0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.3);
 }
 
 body.dark-mode #generate-btn {
-    background-color: #333;
-    color: #e0e0e0;
-}
-
-body.dark-mode #generate-btn:hover {
-    background-color: #444;
-}
-
-body.dark-mode #generate-btn:active {
-    background-color: #555;
+    background: linear-gradient(45deg, #8360c3, #2ebf91);
 }
 
 body.dark-mode #theme-toggle-btn {
-    background-color: #333;
-    color: #e0e0e0;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode #theme-toggle-btn:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.lotto-number.new {
+    animation: pop-in 0.5s ease-out forwards;
+}
+
+@keyframes pop-in {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.lotto-number.bonus {
+    background: linear-gradient(45deg, #ffd700, #ffa500); /* Gold to Orange gradient for bonus */
+    color: #333; /* Darker text for readability */
+    font-weight: 700; /* Bolder font for emphasis */
+}
+
+/* Adding a subtle animation for the background gradient */
+body {
+    /* ... existing styles ... */
+    background-size: 200% 200%;
+    animation: gradient-animation 10s ease infinite;
+}
+
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }

@@ -31,12 +31,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const displayNumbers = (numbers) => {
         lottoNumbersContainer.innerHTML = '';
-        for (const number of numbers) {
+        numbers.forEach((number, index) => {
             const numberDiv = document.createElement('div');
             numberDiv.classList.add('lotto-number');
             numberDiv.textContent = number;
+            
+            // Stagger the animation
+            setTimeout(() => {
+                numberDiv.classList.add('new');
+            }, index * 100);
+
             lottoNumbersContainer.appendChild(numberDiv);
-        }
+        });
     };
 
     generateBtn.addEventListener('click', () => {
